@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Search from './components/searchBar';
+import List from './components/list';
+import { useState } from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
+  const [films, setFilms] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Search
+        changeFilms={setFilms}
+      />
+      <div className="container">
+        <List films={films} />
+      </div>
     </div>
   );
 }
